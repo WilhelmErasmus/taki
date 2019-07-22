@@ -72,7 +72,7 @@ async function getHTML(
 
 async function taki(options, { browser, shouldCloseBrowser = true } = {}) {
   // eslint-disable-next-line require-atomic-updates
-  browser = browser || (await puppeteer.launch())
+  browser = browser || (await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']}))
 
   try {
     const result = Array.isArray(options) ?
